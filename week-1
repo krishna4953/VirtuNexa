@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Adventure</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        function toggleMenu() {
+            document.getElementById('nav-menu').classList.toggle('hidden');
+        }
+    </script>
+</head>
+<body class="bg-gray-100">
+    <!-- Navbar -->
+    <nav class="bg-blue-600 p-4 fixed w-full top-0 z-10 shadow-md">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="#" class="text-white text-lg font-bold">Travel Adventure</a>
+            <button class="text-white md:hidden" onclick="toggleMenu()">☰</button>
+            <ul id="nav-menu" class="hidden md:flex space-x-6 text-white">
+                <li><a href="#destination">Destinations</a></li>
+                <li><a href="#tips">Travel Tips</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <!-- Hero Section -->
+    <section class="h-screen bg-cover bg-center flex items-center justify-center" style="background-image: url('https://source.unsplash.com/1600x900/?travel,nature');">
+        <h1 class="text-5xl text-white font-bold text-center bg-black bg-opacity-50 p-4">Explore The World</h1>
+    </section>
+    
+    <!-- Destinations Section -->
+    <section id="destination" class="p-8 bg-white">
+        <h2 class="text-3xl font-bold text-center text-blue-600">Top Destinations</h2>
+        <p class="text-center mt-2 text-gray-700">Discover breathtaking places around the world.</p>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
+            <div class="bg-gray-200 p-4 rounded shadow-md">
+                <h3 class="text-xl font-semibold">Paris, France</h3>
+                <p>Experience the charm of the Eiffel Tower and exquisite cuisine.</p>
+            </div>
+            <div class="bg-gray-200 p-4 rounded shadow-md">
+                <h3 class="text-xl font-semibold">Kyoto, Japan</h3>
+                <p>Visit ancient temples and beautiful cherry blossom gardens.</p>
+            </div>
+            <div class="bg-gray-200 p-4 rounded shadow-md">
+                <h3 class="text-xl font-semibold">Bali, Indonesia</h3>
+                <p>Relax on stunning beaches and explore lush landscapes.</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Travel Tips Section -->
+    <section id="tips" class="p-8 bg-gray-100">
+        <h2 class="text-3xl font-bold text-center text-blue-600">Travel Tips</h2>
+        <p class="text-center mt-2 text-gray-700">Make your journey smoother with these tips.</p>
+        <ul class="list-disc mt-6 mx-auto w-3/4 text-gray-800">
+            <li>Pack light and carry essentials.</li>
+            <li>Learn basic phrases of the local language.</li>
+            <li>Always have travel insurance.</li>
+        </ul>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="bg-blue-600 text-white text-center p-4">
+        <p>&copy; 2025 Travel Adventure. All rights reserved.</p>
+    </footer>
+</body>
+</html>
