@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Itinerary Planner</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .dragging { opacity: 0.5; }
+    </style>
+</head>
+<body class="bg-gray-100">
+    
+    <!-- Navbar -->
+    <nav class="bg-blue-600 text-white p-4 fixed w-full">
+        <div class="container mx-auto flex justify-between">
+            <h1 class="text-xl font-bold">Travel Planner</h1>
+            <div>
+                <a href="#activities" class="px-4">Activities</a>
+                <a href="#itinerary" class="px-4">Itinerary</a>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Main Content -->
+    <div class="container mx-auto mt-16 p-4">
+        
+        <!-- Activities Section -->
+        <section id="activities" class="p-6 bg-white shadow-lg rounded-lg mb-6">
+            <h2 class="text-2xl font-semibold mb-4">Available Activities</h2>
+            <div class="flex gap-4">
+                <div class="bg-blue-200 p-3 rounded cursor-pointer" draggable="true">Beach Visit</div>
+                <div class="bg-blue-200 p-3 rounded cursor-pointer" draggable="true">City Tour</div>
+                <div class="bg-blue-200 p-3 rounded cursor-pointer" draggable="true">Hiking</div>
+            </div>
+        </section>
+
+        <!-- Itinerary Section -->
+        <section id="itinerary" class="p-6 bg-white shadow-lg rounded-lg">
+            <h2 class="text-2xl font-semibold mb-4">Your Itinerary</h2>
+            <div id="itinerary-list" class="border-2 border-dashed p-4 min-h-[100px]"></div>
+        </section>
+    </div>
+
+    <script>
+        // Drag and Drop functionality
+        const activities = document.querySelectorAll('[draggable="true"]');
+        const itineraryList = document.getElementById("itinerary-list");
+
+        activities.forEach(activity => {
+            activity.addEventListener("dragstart", (e) => {
+                e.dataTransfer.setData("text", e.target.innerText);
+                e.target.classList.add("dragging");
+            });
+            activity.addEventListener("dragend", (e) => e.target.classList.remove("dragging"));
+        });
+
+        itineraryList.addEventListener("dragover", (e) => e.preventDefault());
+        itineraryList.addEventListener("drop", (e) => {
+            e.preventDefault();
+            const data = e.dataTransfer.getData("text");
+            const newItem = document.createElement("div");
+            newItem.innerText = data;
+            newItem.className = "bg-green-200 p-3 rounded mb-2";
+            itineraryList.appendChild(newItem);
+        });
+    </script>
+</body>
+</html>
